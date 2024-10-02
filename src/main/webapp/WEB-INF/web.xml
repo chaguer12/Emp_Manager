@@ -12,5 +12,15 @@
         <url-pattern>/add-employee</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+
 
 </web-app>

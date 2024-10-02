@@ -1,16 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>EmpManager</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
 <div class="container">
     <!-- Form Section -->
     <section id="add-form">
-        <h1 class="title">Welcome back admin !</h1>
+        <h1 class="title">Welcome back admin!</h1>
         <form action="/add-employee" method="POST" enctype="application/x-www-form-urlencoded">
             <label for="nom">Nom :</label><br>
             <input type="text" id="nom" name="nom" required><br><br>
@@ -52,15 +54,17 @@
             </tr>
             </thead>
             <tbody id="employee-table">
+
             <%-- Dynamic employee rows will be inserted here --%>
             <c:forEach var="employee" items="${employees}">
                 <tr>
-                    <td>${employee.nom}</td>
-                    <td>${employee.prenom}</td>
-                    <td>${employee.tel}</td>
-                    <td>${employee.email}</td>
-                    <td>${employee.poste}</td>
-                    <td>${employee.departement}</td>
+                    <td>${employee.getName()}</td>
+                    <td>${employee.getLastname()}</td>
+                    <td>${employee.getTel()}</td>
+                    <td>${employee.getEmail()}</td>
+                    <td>${employee.getPoste()}</td>
+                    <td>${employee.getDepartment()}</td>
+
                     <td><button onclick="deleteEmployee(${employee.id})">Supprimer</button></td>
                 </tr>
             </c:forEach>

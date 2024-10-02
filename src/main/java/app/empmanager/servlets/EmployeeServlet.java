@@ -3,6 +3,7 @@ package app.empmanager.servlets;
 import app.empmanager.entities.Employee;
 import app.empmanager.services.EmployeeService;
 import app.empmanager.services.interfaces.EmployeeServInterface;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class EmployeeServlet extends HttpServlet {
     private EmployeeServInterface empService;
@@ -23,7 +25,13 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+
+
+       List<Employee> employees = empService.getEmployees();
+       req.setAttribute("employees", employees);
+        getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+
+
     }
 
     @Override
