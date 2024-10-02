@@ -36,6 +36,7 @@ public class EmployeeServlet extends HttpServlet {
         String departement = req.getParameter("departement");
         Employee employee = new Employee(name, lastName, tel, email, poste, departement);
         empService.addEmployee(employee);
+        resp.sendRedirect("/");
 
     }
 
