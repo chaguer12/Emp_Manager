@@ -34,7 +34,7 @@ public class EmployeeServlet extends HttpServlet {
         String tel = req.getParameter("tel");
         String poste = req.getParameter("poste");
         String departement = req.getParameter("departement");
-        Employee employee = new Employee(name, lastName, email, tel, poste, departement);
+        Employee employee = new Employee(name, lastName, tel, email, poste, departement);
         empService.addEmployee(employee);
 
     }
