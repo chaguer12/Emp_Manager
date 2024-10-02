@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="emp_manager@localhost" uuid="0fdcf94f-d195-4733-a219-60e551799f83">
+    <data-source source="LOCAL" name="src:main:webapp:WEB-INF:hibernate.cfg.xml/Hibernate" uuid="e91805a6-7cd7-4d3d-80e3-1bac0d390d9e">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/YCcode/Documents/Java/EmpManager/src/main/webapp/WEB-INF/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/emp_manager</jdbc-url>
       <jdbc-additional-properties>
@@ -13,13 +17,9 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="src:main:webapp:WEB-INF:hibernate.cfg.xml/Hibernate" uuid="e91805a6-7cd7-4d3d-80e3-1bac0d390d9e">
+    <data-source source="LOCAL" name="emp_manager@localhost" uuid="af01105b-a71c-4b7d-9588-d7c720ed0aae">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-C:/Users/YCcode/Documents/Java/EmpManager/src/main/webapp/WEB-INF/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/emp_manager</jdbc-url>
       <jdbc-additional-properties>

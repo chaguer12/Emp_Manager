@@ -2,6 +2,7 @@ package app.empmanager.entities;
 
 import jakarta.persistence.*;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import java.sql.Date;
 
@@ -10,11 +11,11 @@ public class Employee {
     private int id;
     private String name;
     private String lastname;
-    private double tel;
+    private String tel;
     private String email;
     private String poste;
     private String department;
-    public Employee(String name, String lastname, double tel, String email, String poste, String department) {
+    public Employee(String name, String lastname, String tel, String email, String poste, String department) {
         this.name = name;
         this.lastname = lastname;
         this.tel = tel;
@@ -23,11 +24,11 @@ public class Employee {
         this.department = department;
     }
 
-    public double getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(double tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
