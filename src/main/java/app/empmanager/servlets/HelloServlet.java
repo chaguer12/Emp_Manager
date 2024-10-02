@@ -1,4 +1,4 @@
-package app.empmanager;
+package app.empmanager.servlets;
 
 import java.io.*;
 
@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+    @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
 
