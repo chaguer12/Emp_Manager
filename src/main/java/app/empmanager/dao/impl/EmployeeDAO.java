@@ -31,10 +31,11 @@ public class EmployeeDAO implements EmployeeDAOI {
     }
     @Override
     public void deleteEmployee(Employee employee) {
+            Transaction trns = null;
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Employee emp = session.get(Employee.class, employee.getId());
-            session.delete(emp);
-            session.getTransaction().commit();
+            trns = session.beginTransaction();
+            session.delete(employee);
+            trns.commit();
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
@@ -43,7 +44,10 @@ public class EmployeeDAO implements EmployeeDAOI {
     public Employee getEmployeeById(int id){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             return session.get(Employee.class, id);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
+        return null;
     }
 
 }

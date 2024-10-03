@@ -36,15 +36,20 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("nom");
-        String lastName = req.getParameter("prenom");
-        String email = req.getParameter("email");
-        String tel = req.getParameter("tel");
-        String poste = req.getParameter("poste");
-        String departement = req.getParameter("departement");
-        Employee employee = new Employee(name, lastName, tel, email, poste, departement);
-        empService.addEmployee(employee);
-        resp.sendRedirect("/");
+        String method = req.getParameter("_method");
+        if("DELETE".equals(method)) {
+            doDelete(req, resp);
+        }else {
+            String name = req.getParameter("nom");
+            String lastName = req.getParameter("prenom");
+            String email = req.getParameter("email");
+            String tel = req.getParameter("tel");
+            String poste = req.getParameter("poste");
+            String departement = req.getParameter("departement");
+            Employee employee = new Employee(name, lastName, tel, email, poste, departement);
+            empService.addEmployee(employee);
+            resp.sendRedirect("/");
+        }
 
     }
     @Override
@@ -52,7 +57,7 @@ public class EmployeeServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         Employee emp = empService.getEmployeeById(id);
         empService.deleteEmployee(emp);
-        resp.sendRedirect("/emp-list");
+        resp.sendRedirect("/emplist");
     }
 
 

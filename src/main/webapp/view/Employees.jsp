@@ -37,7 +37,8 @@
 
                 <td>
                     <form action="/delete-emp" method="post" enctype="application/x-www-form-urlencoded">
-                        <input  name="id" value="${employee.getId()}">
+                        <input hidden name="_method" value="DELETE">
+                        <input hidden name="id" value="${employee.getId()}">
                         <button type="submit" onclick="deleteEmployee(${employee.getId()})">Supprimer</button>
                     </form>
                 </td>
