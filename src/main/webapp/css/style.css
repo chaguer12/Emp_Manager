@@ -47,6 +47,43 @@ html {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+#search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#search::placeholder {
+    color: #888;
+}
+
+button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+button[type="submit"]:active {
+    background-color: #1e7e34; /* Even darker green on click */
+}
 
 #add-form button {
     background-color: #28a745;

@@ -63,6 +63,9 @@ public class EmployeeServlet extends HttpServlet {
             case "UPDATE":
                 updateEmployee(req,resp);
                 break;
+            case "SEARCH":
+                search(req,resp);
+                break;
             default:
                 listEmplos(req,resp);
         }
@@ -109,6 +112,13 @@ public class EmployeeServlet extends HttpServlet {
         emp.setId(id);
         empService.updateEmployee(emp);
         resp.sendRedirect("/");
+
+    }
+    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("target");
+        List<Employee> emps = empService.getEmpByName(name);
+        req.setAttribute("employees", emps);
+        getServletContext().getRequestDispatcher("/view/Employees.jsp").forward(req, resp);
 
     }
 

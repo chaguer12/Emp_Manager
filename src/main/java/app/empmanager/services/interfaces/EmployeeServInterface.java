@@ -10,4 +10,5 @@ public interface EmployeeServInterface {
     void deleteEmployee(Employee employee);
     Employee getEmployeeById(int id);
     void updateEmployee(Employee employee);
+    List<Employee> getEmpByName(String input);
 }

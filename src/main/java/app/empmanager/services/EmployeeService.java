@@ -30,4 +30,8 @@ public class EmployeeService implements EmployeeServInterface {
     public void updateEmployee(Employee employee) {
         dao.updateEmployee(employee);
     }
+    @Override
+    public List<Employee> getEmpByName(String input){
+        return dao.getEmpByName(input);
+    }
 }

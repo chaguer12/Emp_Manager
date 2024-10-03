@@ -9,8 +9,12 @@
 <!-- Employee List Section -->
 <section id="employee-list">
     <h2>Liste des employés</h2>
-    <input type="text" id="search" placeholder="Rechercher un employé..."><br><br>
-
+    <form id="search-form" action="${pageContext.request.contextPath}/search" method="post" enctype="application/x-www-form-urlencoded">
+        <input hidden name="_method" value="SEARCH">
+        <input type="text" name="target" id="search" placeholder="Rechercher un employé...">
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/">Home</a>
     <table>
         <thead>
         <tr>
@@ -52,8 +56,9 @@
         </c:forEach>
         </tbody>
     </table>
-    <a href="/">Home</a>
+
 </section>
+<!--
 <script>
 
     document.getElementById("search").addEventListener("input", function() {
@@ -74,5 +79,6 @@
         }
     }
 </script>
+-->
 </body>
 </html>
