@@ -9,5 +9,5 @@ public interface EmployeeServInterface {
     List<Employee> getEmployees();
     void deleteEmployee(Employee employee);
     Employee getEmployeeById(int id);
-    void updateEmployee(int id);
+    void updateEmployee(Employee employee);
 }

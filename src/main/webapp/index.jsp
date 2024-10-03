@@ -31,7 +31,7 @@
 
             <label for="departement">Département :</label><br>
             <input type="text" id="departement" name="departement" required><br><br>
-
+            <input hidden name="_method" value="ADD">
             <button type="submit">Ajouter l'employé</button>
         </form>
         <form action="/emplist" method="get" enctype="application/x-www-form-urlencoded">

@@ -26,17 +26,22 @@ public class EmployeeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("_method");
-        switch(action){
-            case "PATCH":
-                dataTransporter(req,resp);
-                break;
-            case "LIST":
-                listEmplos(req,resp);
-                break;
-            default:
-                listEmplos(req,resp);
-                break;
+        if(action != null){
+            switch(action){
+                case "UPDATE":
+                    updateEmployee(req,resp);
+                    break;
+                case "PATCH":
+                    dataTransporter(req,resp);
+                    break;
+                case "LIST":
+                    listEmplos(req,resp);
+                    break;
+                default:
+                    listEmplos(req,resp);
+                    break;
 
+            }
         }
 
 
@@ -48,19 +53,20 @@ public class EmployeeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String method = req.getParameter("_method");
-        if("DELETE".equals(method)) {
-            doDelete(req, resp);
-        }else {
-            String name = req.getParameter("nom");
-            String lastName = req.getParameter("prenom");
-            String email = req.getParameter("email");
-            String tel = req.getParameter("tel");
-            String poste = req.getParameter("poste");
-            String departement = req.getParameter("departement");
-            Employee employee = new Employee(name, lastName, tel, email, poste, departement);
-            empService.addEmployee(employee);
-            resp.sendRedirect("/");
+        switch(method){
+            case "DELETE":
+                doDelete(req, resp);
+                break;
+            case "ADD":
+                insert(req, resp);
+                break;
+            case "UPDATE":
+                updateEmployee(req,resp);
+                break;
+            default:
+                listEmplos(req,resp);
         }
+
 
     }
     @Override
@@ -79,6 +85,31 @@ public class EmployeeServlet extends HttpServlet {
         Employee emp = empService.getEmployeeById(Integer.parseInt(req.getParameter("id")));
         req.setAttribute("employee",emp);
         req.getRequestDispatcher("/view/UpdateForm.jsp").forward(req, resp);
+    }
+    private void insert(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+        String name = req.getParameter("nom");
+        String lastName = req.getParameter("prenom");
+        String email = req.getParameter("email");
+        String tel = req.getParameter("tel");
+        String poste = req.getParameter("poste");
+        String departement = req.getParameter("departement");
+        Employee employee = new Employee(name, lastName, tel, email, poste, departement);
+        empService.addEmployee(employee);
+        resp.sendRedirect("/");
+    }
+    private void updateEmployee(HttpServletRequest req, HttpServletResponse resp)throws IOException{
+        String name = req.getParameter("nom");
+        String lastName = req.getParameter("prenom");
+        String email = req.getParameter("email");
+        String tel = req.getParameter("tel");
+        String poste = req.getParameter("poste");
+        String departement = req.getParameter("departement");
+        int id = Integer.parseInt(req.getParameter("id"));
+        Employee  emp = new Employee(name, lastName, tel, email, poste, departement);
+        emp.setId(id);
+        empService.updateEmployee(emp);
+        resp.sendRedirect("/");
+
     }
 
 
