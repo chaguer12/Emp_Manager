@@ -34,7 +34,7 @@
 
             <button type="submit">Ajouter l'employé</button>
         </form>
-        <a href="/employees">See employees</a>
+        <a href="emplist">See employees</a>
     </section>
 
 

@@ -35,7 +35,7 @@
                 <td>${employee.getPoste()}</td>
                 <td>${employee.getDepartment()}</td>
 
-                <td><button onclick="deleteEmployee(${employee.id})">Supprimer</button></td>
+                <td><button onclick="deleteEmployee(${employee.getId()})">Supprimer</button></td>
             </tr>
         </c:forEach>
         </tbody>

@@ -14,7 +14,7 @@
 
     <servlet-mapping>
         <servlet-name>EmployeeServlet</servlet-name>
-        <url-pattern>/employees</url-pattern>
+        <url-pattern>/emplist</url-pattern>
     </servlet-mapping>
 
 

@@ -29,7 +29,7 @@ public class EmployeeServlet extends HttpServlet {
 
        List<Employee> employees = empService.getEmployees();
        req.setAttribute("employees", employees);
-       getServletContext().getRequestDispatcher("view/Employees.jsp").forward(req, resp);
+       getServletContext().getRequestDispatcher("/view/Employees.jsp").forward(req, resp);
 
 
     }
