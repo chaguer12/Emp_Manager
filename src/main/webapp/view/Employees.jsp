@@ -35,14 +35,20 @@
                 <td>${employee.getPoste()}</td>
                 <td>${employee.getDepartment()}</td>
 
-                <td><button onclick="deleteEmployee(${employee.getId()})">Supprimer</button></td>
+                <td>
+                    <form action="/delete-emp" method="post" enctype="application/x-www-form-urlencoded">
+                        <input  name="id" value="${employee.getId()}">
+                        <button type="submit" onclick="deleteEmployee(${employee.getId()})">Supprimer</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <a href="/">Home</a>
 </section>
 <script>
-    // Search functionality
+
     document.getElementById("search").addEventListener("input", function() {
         const searchTerm = this.value.toLowerCase();
         const rows = document.querySelectorAll("#employee-table tr");

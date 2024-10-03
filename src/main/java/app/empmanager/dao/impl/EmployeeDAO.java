@@ -20,6 +20,7 @@ public class EmployeeDAO implements EmployeeDAOI {
         }
 
     }
+    @Override
     public List<Employee> getEmployees() {
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             return session.createQuery("from Employee",Employee.class).list();
@@ -27,6 +28,22 @@ public class EmployeeDAO implements EmployeeDAOI {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+    @Override
+    public void deleteEmployee(Employee employee) {
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Employee emp = session.get(Employee.class, employee.getId());
+            session.delete(emp);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    @Override
+    public Employee getEmployeeById(int id){
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.get(Employee.class, id);
+        }
     }
 
 }

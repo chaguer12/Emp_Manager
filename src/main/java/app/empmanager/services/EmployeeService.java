@@ -18,4 +18,12 @@ public class EmployeeService implements EmployeeServInterface {
         List<Employee> emplos = dao.getEmployees();
         return emplos;
     }
+    @Override
+    public void deleteEmployee(Employee employee) {
+        dao.deleteEmployee(employee);
+    }
+    @Override
+    public Employee getEmployeeById(int id){
+        return dao.getEmployeeById(id);
+    }
 }

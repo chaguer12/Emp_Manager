@@ -7,4 +7,6 @@ import java.util.List;
 public interface EmployeeDAOI {
     void addEmployee(Employee employee);
     List<Employee> getEmployees();
+    void deleteEmployee(Employee employee);
+    Employee getEmployeeById(int id);
 }

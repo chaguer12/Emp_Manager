@@ -16,6 +16,10 @@
         <servlet-name>EmployeeServlet</servlet-name>
         <url-pattern>/emplist</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/delete-emp</url-pattern>
+    </servlet-mapping>
 
 
 
