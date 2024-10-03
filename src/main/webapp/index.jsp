@@ -34,7 +34,10 @@
 
             <button type="submit">Ajouter l'employé</button>
         </form>
-        <a href="emplist">See employees</a>
+        <form action="/emplist" method="get" enctype="application/x-www-form-urlencoded">
+            <input hidden name="_method" value="LIST">
+            <button id="edit-btn"  type="submit" >See employees</button>
+        </form>
     </section>
 
 

@@ -26,4 +26,9 @@ public class EmployeeService implements EmployeeServInterface {
     public Employee getEmployeeById(int id){
         return dao.getEmployeeById(id);
     }
+    @Override
+    public void updateEmployee(int id) {
+        Employee emp = dao.getEmployeeById(id);
+        dao.updateEmployee(emp);
+    }
 }

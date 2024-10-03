@@ -9,4 +9,5 @@ public interface EmployeeDAOI {
     List<Employee> getEmployees();
     void deleteEmployee(Employee employee);
     Employee getEmployeeById(int id);
+    void updateEmployee(Employee employee);
 }

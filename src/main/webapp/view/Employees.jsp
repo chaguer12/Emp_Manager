@@ -26,6 +26,7 @@
         <tbody id="employee-table">
 
         <%-- Dynamic employee rows will be inserted here --%>
+
         <c:forEach var="employee" items="${employees}">
             <tr>
                 <td>${employee.getName()}</td>
@@ -40,6 +41,11 @@
                         <input hidden name="_method" value="DELETE">
                         <input hidden name="id" value="${employee.getId()}">
                         <button type="submit" onclick="deleteEmployee(${employee.getId()})">Supprimer</button>
+                    </form>
+                    <form action="/update-emp" method="get" enctype="application/x-www-form-urlencoded">
+                        <input hidden name="_method" value="PATCH">
+                        <input hidden name="id" value="${employee.getId()}">
+                        <button id="edit-btn"  type="submit" >Modifier</button>
                     </form>
                 </td>
             </tr>

@@ -17,19 +17,30 @@ import java.util.List;
 public class EmployeeServlet extends HttpServlet {
     private EmployeeServInterface empService;
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
+    public void init() throws ServletException {
+
         empService = new EmployeeService();
 
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("_method");
+        switch(action){
+            case "PATCH":
+                dataTransporter(req,resp);
+                break;
+            case "LIST":
+                listEmplos(req,resp);
+                break;
+            default:
+                listEmplos(req,resp);
+                break;
+
+        }
 
 
-       List<Employee> employees = empService.getEmployees();
-       req.setAttribute("employees", employees);
-       getServletContext().getRequestDispatcher("/view/Employees.jsp").forward(req, resp);
+
 
 
     }
@@ -58,6 +69,16 @@ public class EmployeeServlet extends HttpServlet {
         Employee emp = empService.getEmployeeById(id);
         empService.deleteEmployee(emp);
         resp.sendRedirect("/emplist");
+    }
+    private void listEmplos(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
+        List<Employee> employees = empService.getEmployees();
+        req.setAttribute("employees", employees);
+        getServletContext().getRequestDispatcher("/view/Employees.jsp").forward(req, resp);
+    }
+    private void dataTransporter(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
+        Employee emp = empService.getEmployeeById(Integer.parseInt(req.getParameter("id")));
+        req.setAttribute("employee",emp);
+        req.getRequestDispatcher("/view/UpdateForm.jsp").forward(req, resp);
     }
 
 

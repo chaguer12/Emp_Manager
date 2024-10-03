@@ -39,6 +39,7 @@ html {
     color: #333;
 }
 
+
 #add-form input, #add-form button, #employee-list input {
     width: 100%;
     padding: 10px;
@@ -49,6 +50,12 @@ html {
 
 #add-form button {
     background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#edit-btn{
+    background-color: #218838;
     color: white;
     border: none;
     cursor: pointer;

@@ -40,6 +40,7 @@ public class EmployeeDAO implements EmployeeDAOI {
             System.out.println(e.getMessage());
         }
     }
+
     @Override
     public Employee getEmployeeById(int id){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
@@ -48,6 +49,17 @@ public class EmployeeDAO implements EmployeeDAOI {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+    @Override
+    public void updateEmployee(Employee employee) {
+        Transaction trns = null;
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            trns = session.beginTransaction();
+            session.update(employee);
+            trns.commit();
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
