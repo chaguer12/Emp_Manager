@@ -69,7 +69,7 @@ public class EmployeeDAO implements EmployeeDAOI {
     public List<Employee> getEmpByName(String input){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             session.beginTransaction();
-            String sql = "from employees where name like '%:input' or lastname like '%:input'";
+            String sql = "from employees where name like '%:input%' ";
             Query query = (Query) session.createQuery(sql);
             query.setParameter("input",input);
             List<Employee> emps = query.getResultList();

@@ -116,8 +116,8 @@ public class EmployeeServlet extends HttpServlet {
     }
     private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("target");
-        List<Employee> emps = empService.getEmpByName(name);
-        req.setAttribute("employees", emps);
+        List<Employee> employees = empService.getEmpByName(name);
+        req.setAttribute("employees", employees);
         getServletContext().getRequestDispatcher("/view/Employees.jsp").forward(req, resp);
 
     }
